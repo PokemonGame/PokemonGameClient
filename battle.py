@@ -168,7 +168,7 @@ def mainmenu():
                     # 파일에 유저 정보 저장
                     with open('user_info', 'wb') as file:
                         pickle.dump(name, file)
-                        pickle.dump(my_pokemon_hp, file)
+                        pickle.dump(1, file)
                         pickle.dump(my_pokemon_hp_full, file)
                         pickle.dump(my_pokemon_atk, file)
                         pickle.dump(lv, file)
@@ -274,7 +274,7 @@ def mainmenu():
                     # 파일에 유저 정보 저장
                     with open('user_info', 'wb') as file:
                         pickle.dump(name, file)
-                        pickle.dump(my_pokemon_hp, file)
+                        pickle.dump(1, file)
                         pickle.dump(my_pokemon_hp_full, file)
                         pickle.dump(my_pokemon_atk, file)
                         pickle.dump(lv, file)

@@ -75,7 +75,7 @@ def work():
     # 캐릭터 이동속도
     character_speed = 10
     # 캐릭터의 좌표
-    x = 450
+    x = 410
     y = 600 - character_height
 
     # 누르고 있는 키의 값을 True로 하여 값이 True이면 이미지를 계속 변경
@@ -158,6 +158,7 @@ def work():
     # 회면에 띄워지는 포션과 돈의 양의 폰트
     textFont = pygame.font.SysFont( "나눔고딕", 20, True, False)
     BLACK = ( 0, 0, 0 )
+    saveFont = pygame.font.SysFont( "나눔고딕", 30, True, False)
 
     running = True
     while running:
@@ -234,8 +235,17 @@ def work():
             down = False
             up = True
         elif keys[pygame.K_p]:
-            print("save버튼 누름")
             client_server.save()
+            save_Title= saveFont.render("저장되었습니다", True, BLACK)
+            screen.blit(save_Title, [330, 250])
+            pygame.display.update()
+
+            # 함수를 실행한 당시의 시간을 가져옴
+            time = pygame.time.get_ticks()
+
+            # 매개변수로 받은 초만큼 대기하기 위해 함수를 실행한 시간이 매개변수로 받은 초만큼이 되기 전까지 돌린다
+            while pygame.time.get_ticks() - time <= 3000 :
+                continue
         
         # 플레이어가 풀숲에 들어갔을 시 2%의 확률로 배틀 시작
         if (-20 < x < 260 and 0 < y < 360) or (560 < x < 900 and 0 < y < 210) or (790 < x < 900 and 0 < y < 330) or (530 < x < 900 and 500 < y < 600): # 왼쪽 위 풀
